@@ -4,7 +4,7 @@
   "description": "Mon projet OpenClassRooms 3O Ohmyfood",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass": "sass --watch style.scss style.css"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/Zujowz/Ohmyfood#readme",
   "dependencies": {
+    "postcss": "^8.4.5",
+    "react": "^17.0.2",
     "sass": "^1.48.0"
   }
 }
