@@ -217,4 +217,42 @@ footer p {
   padding: 0.2rem;
 }
 
+.banner img {
+  display: block;
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+.resto__main {
+  margin-top: -2rem;
+}
+.resto__main h2 {
+  position: relative;
+  font-family: "Shrikhand", "cursive";
+  padding: 2rem 1rem;
+  border-radius: 2rem 2rem 0 0;
+  background: white;
+}
+.resto__main h2 i {
+  font-size: 2rem;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.resto__main h2 .fas {
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  opacity: 0;
+  transition: all 200ms ease-in-out;
+  background-image: linear-gradient(to top, #9356dc, #ff79da);
+}
+.resto__main h2:hover .fas {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+}
+
 /*# sourceMappingURL=style.css.map */
