@@ -1,7 +1,16 @@
 @use "../Outils/variables.scss";
 @use "../Outils/colors.scss";
 @use "../Outils/mixins.scss";
+@use "../Outils/animations.scss";
 
+
+
+body {
+    background-color: colors.$lightergrey;
+}
+
+
+#page-resto{
 
 
 .banner img{
@@ -13,14 +22,16 @@
 }
 
 
-.resto__main{
+.resto__titre{
     margin-top: -2rem;
+
     h2{
     position: relative;
     font-family: "Shrikhand" , "cursive" ;
     padding: 2rem 1rem;
     border-radius: 2rem 2rem 0 0;
     background: white;
+    background-color: colors.$lightergrey;
     i{
         font-size: 2rem;
         position: absolute;
@@ -41,4 +52,75 @@
         transform:translateY(-50%) scale(1.1);
     }
     }
+}
+
+.resto-main{
+    background-color: colors.$lightergrey;
+}
+
+.menus {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    @media (max-width: variables.$breakpoint){
+        grid-template-columns: 1fr;
+    }
+    .menus__category {
+        overflow: hidden;
+        .menus-item{
+            display: flex;
+            overflow: hidden;
+            background-color: white;
+            margin: .5rem;
+            border-radius: 1rem;
+            @include mixins.base-shadow;
+            .menus-item__price {
+                margin-left: auto;
+                font-weight: 900;
+                padding: 1rem;
+                display: flex;
+                align-items: flex-end;
+            }
+            .menus-item__description{
+                padding: 1rem;
+                overflow: hidden;
+                h4,
+                    p{
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    }
+            }
+            .menus-item__icone{
+                display: grid;
+                place-items: center;
+                flex-shrink: 0;
+                $button-width: 4rem;
+                border-radius: 0 1rem 1rem 0;
+                background-color: colors.$colors-trois;
+                margin-right: -$button-width;
+                width: $button-width;
+                transition: margin-right .5s;
+                i {
+                    display: grid;
+                    place-items: center;
+                    background: white;
+                    height: 2rem;
+                    width: 2rem;
+                    border-radius: 1rem;
+                    color: colors.$colors-trois;
+                }
+            }
+            &:hover{
+             .menus-item__icone{
+                margin-right: 0;
+            }
+            i {
+            @include animations.icone-spin;    
+            animation: icone-spin 1.5s ease-in-out;
+            }
+        }
+        }
+    }
+}
 }

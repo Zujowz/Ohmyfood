@@ -4,7 +4,7 @@
     rgba(255, 121, 218, $opacity));
 }
 @mixin base-shadow {
-    box-shadow: 2px 1px 16px -3px #000000;
+    box-shadow: 2px 1px 8px -3px #000000;
 }
 @mixin transform-zoom{
     transform: scale(1.02);

@@ -2,6 +2,10 @@
 @use "../Outils/colors.scss";
 @use "../Outils/mixins.scss";
 
+
+#homepage{
+
+
 .menus{
     background-color: #f6f6f6;
     margin-bottom: 2rem;
@@ -67,5 +71,6 @@
             transform:translateY(-50%) scale(1.1);
         }
     }
+}
 }
 }
