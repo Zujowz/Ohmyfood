@@ -65,7 +65,8 @@ header {
   text-align: center;
 }
 .explorer h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
+  margin: 1rem;
 }
 .explorer p {
   font-size: 1rem;
@@ -88,6 +89,37 @@ header {
   opacity: 0.9;
 }
 
+.loader {
+  position: fixed;
+  display: grid;
+  place-items: center;
+  background-color: #ffffff;
+  height: 100vh;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.9;
+  animation: disappear 200ms;
+  animation-delay: 3s;
+  animation-fill-mode: forwards;
+  transform-origin: top;
+}
+.loader i {
+  animation: spin 3s infinite linear;
+}
+
+@keyframes disappear {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 .fonction {
   counter-reset: steps;
   margin-bottom: 2rem;
@@ -224,10 +256,12 @@ footer p {
 
 @keyframes appear {
   0% {
-    transform: scale(0);
+    transform: translateY(50%);
+    opacity: 0;
   }
   100% {
-    transform: scale(1);
+    transform: translateY(1);
+    opacity: 1;
   }
 }
 body {
