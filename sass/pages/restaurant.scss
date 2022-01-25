@@ -11,7 +11,20 @@ body {
 
 
 #page-resto{
-
+header{
+    &:hover::before {
+        @include mixins.transform-zoom($zoom-level: 1.2, $transformation: translateY(-50%));
+    }
+    &::before {
+    @include mixins.font-awesome($font-weight:900); 
+    content: "\f060";
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    transition: transform 200ms;
+}
+}
 
 .banner img{
     display: block;
@@ -65,15 +78,39 @@ body {
     @media (max-width: variables.$breakpoint){
         grid-template-columns: 1fr;
     }
+    h3{
+        text-transform: uppercase;
+        font-weight: 400;
+        position: relative;
+        margin-bottom: 1rem;
+        &::after{
+            content:"";
+            position: absolute;
+            top: 1.5rem;
+            left: 0;
+            height: .25rem;
+            width: 3rem;
+            background-color: colors.$colors-trois;
+        }
+    }
     .menus__category {
         overflow: hidden;
+
         .menus-item{
+            $numberOfItems: 3;
+            @for $i from 1 through $numberOfItems {
+                &:nth-child(#{$i}) {
+                    animation-delay: 100ms * $i;
+                }
+            }
             display: flex;
             overflow: hidden;
             background-color: white;
             margin: .5rem;
             border-radius: 1rem;
             @include mixins.base-shadow;
+            animation: appear 1s;
+            animation-fill-mode: both;
             .menus-item__price {
                 margin-left: auto;
                 font-weight: 900;
@@ -102,16 +139,17 @@ body {
                 width: $button-width;
                 transition: margin-right .5s;
                 i {
-                    display: grid;
-                    place-items: center;
-                    background: white;
-                    height: 2rem;
-                    width: 2rem;
-                    border-radius: 1rem;
-                    color: colors.$colors-trois;
+                display: grid;
+                place-items: center;
+                background: white;
+                height: 2rem;
+                width: 2rem;
+                border-radius: 1rem;
+                color: colors.$colors-trois;
                 }
             }
             &:hover{
+                cursor: pointer;
              .menus-item__icone{
                 margin-right: 0;
             }
@@ -121,6 +159,14 @@ body {
             }
         }
         }
+    }
+}
+section.order{
+    height: 30vh;
+    display: grid;
+    place-items: center; 
+    button{
+        @include mixins.base-button;
     }
 }
 }
