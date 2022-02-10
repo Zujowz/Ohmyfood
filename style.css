@@ -272,7 +272,7 @@ footer p {
     opacity: 0;
   }
   100% {
-    transform: translateY(1);
+    transform: translateY(1px);
     opacity: 1;
   }
 }
